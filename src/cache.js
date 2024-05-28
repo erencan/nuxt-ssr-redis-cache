@@ -83,6 +83,7 @@ export default async function nuxtRedisCache(moduleOptions) {
 function buildOptions(moduleOptions) {
   const defaultOptions = {
     enabled: true,
+    ignoreNoCache: false,
     client: {
       socket: {
         host: '127.0.0.1',
@@ -104,7 +105,7 @@ function buildOptions(moduleOptions) {
 
 function isCacheable(url, paths = [], cacheControl = null) {
   return (
-      cacheControl !== 'no-cache' && cacheControl !== 'no-store'
+      options.ignoreNoCache??(cacheControl !== 'no-cache' && cacheControl !== 'no-store')
       && (!paths.length || paths.some((path) => (path instanceof RegExp ? path.test(url) : url.startsWith(path))))
   )
 }
