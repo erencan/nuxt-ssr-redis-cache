@@ -9,7 +9,7 @@
 To install the `nuxt-ssr-redis-cache` module in your project, use the following:
 
 ```
-npm install @luispittagros/nuxt-ssr-redis-cache --save
+npm install nuxt-ssr-redis-cache --save
 ```
 
 ## Configuration
@@ -19,7 +19,7 @@ You can configure `nuxt-ssr-redis-cache` in your `nuxt.config.js` file:
 ```js
 modules: [
    [
-      '@luispittagros/nuxt-ssr-redis-cache',
+      'nuxt-ssr-redis-cache',
       {
         enabled: true,
         client: {
@@ -44,7 +44,7 @@ modules: [
 Alternatively, you can set it up as follows:
 
 ```js
-  modules: ['@luispittagros/nuxt-ssr-redis-cache'],
+  modules: ['nuxt-ssr-redis-cache'],
   ssrRedisCache: {
     enabled: true,
     client: {

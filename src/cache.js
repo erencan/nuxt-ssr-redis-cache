@@ -47,7 +47,7 @@ export default async function nuxtRedisCache(moduleOptions) {
 
     renderer.renderRoute = async function (route, context) {
       // Check if the route is cacheable, if not, just render the route (cache-control: no-cache is set when the browser cache is disabled)
-      if (!isCacheable(route, options.paths, context.req.headers['cache-control'])) {
+      if (!isCacheable(route, options.paths, context.req.headers['cache-control'], options.ignoreCacheControl)) {
         return renderRoute(route, context)
       }
 
@@ -72,7 +72,7 @@ export default async function nuxtRedisCache(moduleOptions) {
   })
 
   this.nuxt.hook('render:route', async (url, result, context) => {
-    if (!context.req.hitCache && isCacheable(url, options.paths, context.req.headers['cache-control'])) {
+    if (!context.req.hitCache && isCacheable(url, options.paths, context.req.headers['cache-control'], options.ignoreCacheControl)) {
       client.set('nuxt/route::' + url, serialize(result), {
         EX: options.ttl,
       })
@@ -83,7 +83,6 @@ export default async function nuxtRedisCache(moduleOptions) {
 function buildOptions(moduleOptions) {
   const defaultOptions = {
     enabled: true,
-    ignoreNoCache: false,
     client: {
       socket: {
         host: '127.0.0.1',
@@ -103,9 +102,9 @@ function buildOptions(moduleOptions) {
   return Object.assign({}, defaultOptions, moduleOptions)
 }
 
-function isCacheable(url, paths = [], cacheControl = null) {
+function isCacheable(url, paths = [], cacheControl = null, ignoreCacheControl = false) {
   return (
-      options.ignoreNoCache??(cacheControl !== 'no-cache' && cacheControl !== 'no-store')
+      ignoreCacheControl?true:(cacheControl !== 'no-cache' && cacheControl !== 'no-store')
       && (!paths.length || paths.some((path) => (path instanceof RegExp ? path.test(url) : url.startsWith(path))))
   )
 }

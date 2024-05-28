@@ -1,18 +1,41 @@
 {
-  "name": "@luispittagros/nuxt-ssr-redis-cache",
-  "version": "1.1.5",
-  "description": "Blazing Fast SSR page renderings using Redis.",
-  "main": "src/cache.js",
-  "author": "Luís Pitta Grós",
-  "license": "MIT",
+  "_from": "nuxt-ssr-redis-cache",
+  "_inBundle": false,
+  "_integrity": "sha512-5liQ6H+LQLlPHFG/cUH8qR7YUl7cUXKNAI1lod+7zyAKa0VK0fzk4yDT2tSeeR5E551Y2rVybXZZRgs4/NAmdA==",
+  "_location": "/nuxt-ssr-redis-cache",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "nuxt-ssr-redis-cache",
+    "name": "nuxt-ssr-redis-cache",
+    "escapedName": "nuxt-ssr-redis-cache",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nuxt-ssr-redis-cache/-/nuxt-ssr-redis-cache-1.0.0.tgz",
+  "_shasum": "c90d9d8b8d1245141f96d925542ef4063bf2f187",
+  "_spec": "nuxt-ssr-redis-cache",
+  "_where": "/Users/erencan/WebstormProjects/biletdukkani-b2c-web",
+  "author": {
+    "name": "Eren Can"
+  },
+  "bugs": {
+    "url": "https://github.com/erencan/nuxt-ssr-redis-cache/issues"
+  },
+  "bundleDependencies": false,
   "dependencies": {
     "cors": "^2.8.5",
     "redis": "^4.1.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/luispittagros/nuxt-ssr-redis-cache.git"
-  },
+  "deprecated": false,
+  "description": "Blazing Fast SSR page renderings using Redis.",
+  "homepage": "https://github.com/erencan/nuxt-ssr-redis-cache#readme",
   "keywords": [
     "Nuxt",
     "SSR",
@@ -21,8 +44,15 @@
     "Page",
     "Fast"
   ],
-  "bugs": {
-    "url": "https://github.com/luispittagros/nuxt-ssr-redis-cache/issues"
+  "license": "MIT",
+  "main": "src/cache.js",
+  "name": "nuxt-ssr-redis-cache",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erencan/nuxt-ssr-redis-cache.git"
   },
-  "homepage": "https://github.com/luispittagros/nuxt-ssr-redis-cache#readme"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.2.0"
 }
